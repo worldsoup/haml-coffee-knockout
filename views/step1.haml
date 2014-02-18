@@ -1,0 +1,14 @@
+%strong{data-bind: "text: firstName"}
+%strong{data-bind: "text: lastName"} 
+%p First Name:
+	%input{data-bind: "value: firstName"}
+%p Last Name:
+	%input{data-bind: "value: lastName"}
+%p
+	%button{data-bind: "click: capitalizeLastName"} Go Caps
+
+
+
+  %script{src: "http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"}
+
+  %script{src: "step1.js"}

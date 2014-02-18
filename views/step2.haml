@@ -1,0 +1,30 @@
+%h2 Your seat reservations(
+  %span{data-bind: "text: seats().length"}
+
+%table
+  %thead
+    %tr
+      %th Passenger name
+      %th Meal
+      %th Surcharge
+      %th
+  %tbody{data-bind="foreach: seats"}
+    %tr
+      %td
+        %input{data-bind="value: name"}
+      %td
+        %select{data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"}
+      %td{data-bind="text: formattedPrice"}
+      %td
+        %a{href: "#", data-bind="click: $root.removeSeat"}
+%button{data-bind="click: addSeat, enable: seats().length < 5"} Reserve another seat
+%h3{data-bind="visible: totalSurcharge() > 0"} Total Surcharge: $
+  %span{data-bind="text: totalSurcharge().toFixed(2)"}
+  
+
+
+
+
+%script{src: "http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"}
+
+%script{src: "step2.js"}
