@@ -35,20 +35,10 @@
     self.seats = ko.observableArray([new SeatReservation("Steve", self.availableMeals[0]), new SeatReservation("Bert", self.availableMeals[0])]);
     self.addSeat = function() {
       self.seats.push(new SeatReservation("", self.availableMeals[0]));
-      self.removeSeat = function(seat) {
-        self.seats.remove(seat);
-      };
     };
-    self.totalSurcharge = ko.computed(function() {
-      var i, total;
-      total = 0;
-      i = 0;
-      while (i < self.seats().length) {
-        total += self.seats()[i].meal().price;
-        i++;
-      }
-      return total;
-    });
+    self.removeSeat = function(seat) {
+      self.seats.remove(seat);
+    };
   };
 
   ko.applyBindings(new ReservationsViewModel());

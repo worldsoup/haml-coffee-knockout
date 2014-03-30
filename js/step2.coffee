@@ -34,24 +34,13 @@ ReservationsViewModel = ->
     new SeatReservation("Steve", self.availableMeals[0])
     new SeatReservation("Bert", self.availableMeals[0])
   ])
-  
-  # Operations
   self.addSeat = ->
     self.seats.push new SeatReservation("", self.availableMeals[0])
-    self.removeSeat = (seat) ->
-      self.seats.remove seat
-      return
-
     return
 
-  self.totalSurcharge = ko.computed(->
-    total = 0
-    i = 0
+  self.removeSeat = (seat) ->
+    self.seats.remove seat
+    return
 
-    while i < self.seats().length
-      total += self.seats()[i].meal().price
-      i++
-    total
-  )
   return
 ko.applyBindings new ReservationsViewModel()
